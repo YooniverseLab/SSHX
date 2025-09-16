@@ -25,4 +25,4 @@ EXPOSE 8080
 # 더미 HTTP 서버를 백그라운드에서 실행하고, sshx serve --once를 주 프로세스로 실행
 # sshx serve --once는 한 번의 연결이 종료되면 프로세스도 종료되도록 설정
 CMD python3 -m http.server 8080 & \
-    sshx serve --once
+    sshx
