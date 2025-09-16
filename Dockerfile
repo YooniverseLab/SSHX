@@ -6,7 +6,7 @@ RUN apt update && \
     apt clean
 
 # Download and install sshx directly
-RUN wget https://sshx.io/get && ./get && sshx
+RUN wget https://sshx.io/get && ./get
 
 # Create dummy web content to keep the Render service alive
 WORKDIR /app
@@ -17,4 +17,4 @@ EXPOSE 8080
 
 # Start dummy HTTP server and sshx (foreground process)
 CMD python3 -m http.server 8080 & \
-    sshx serve --once
+    sshx
