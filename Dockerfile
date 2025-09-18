@@ -10,8 +10,8 @@ RUN apt update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     systemd \
    && apt clean \
    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-   && apt install -y && curl ca-certificates python3
-
+   && apt install -y && curl ca-certificates python3 \
+   && apt install curl
 # sshx 설치 스크립트를 사용하여 sshx 바이너리 설치
 # -sS: curl의 진행 표시줄을 비활성화하고, 오류 발생 시 오류 메시지를 표시
 # -f: HTTP 오류가 발생할 경우 자동 종료
