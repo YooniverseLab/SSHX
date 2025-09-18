@@ -6,9 +6,11 @@ FROM ubuntu:22.04
 # ca-certificates: curl이 HTTPS 연결을 신뢰하는 데 필요
 # python3: Render 서비스 유지를 위한 더미 웹 서버 실행에 필요
 # -y: 모든 프롬프트에 'yes'로 응답하여 설치를 자동화
-RUN apt update && \
-    apt install -y curl ca-certificates python3 && \
-    apt clean
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    systemd \
+   && apt clean \
+   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+   && apt install -y curl ca-certificates python3 && \
 
 # sshx 설치 스크립트를 사용하여 sshx 바이너리 설치
 # -sS: curl의 진행 표시줄을 비활성화하고, 오류 발생 시 오류 메시지를 표시
